@@ -1,0 +1,44 @@
+packages_general:
+  - htop
+  - vim
+  - nfs-common
+  - flatpak
+  
+  - firefox
+  - vlc
+  - gnome-tweaks
+  - evolution
+  - davmail
+  - gimp
+  - rhythmbox
+  - remmina
+  - rsync
+  - tar
+  - wget
+  - vim
+  - zsh
+  
+  - git
+  - curl
+  - podman
+  
+  - go
+  - gcc
+  - cmake
+  - gdb
+  - python3
+  - perl
+  
+  - python3-psutil
+  
+packages_debian:
+  - nfs-common
+  
+packages_fedora:
+  - nfs-util
+
+flatpaks:
+  - com.github.iwalton3.jellyfin-media-player
+  - org.signal.Signal
+  - com.discordapp.Discord
+  - com.github.micahflee.torbrowser-launcher

@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  become: true
+  vars_files:
+    - files/packages.yaml
+    - files/mounts.yaml
+    - files/dconf.yaml
+  pre_tasks:
+    - name: Update Repositories
+      apt: update_cache=yes
+      changed_when: False
+
+  tasks:
+    #- include: tasks/packages.yaml
+    #- include: tasks/mounts.yaml
+    - include: tasks/surface-linux.yaml
+    - include: tasks/dconf.yaml

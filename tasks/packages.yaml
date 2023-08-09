@@ -1,0 +1,44 @@
+- name: Add Podman GPG Key
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '20.04'
+  apt_key:
+    url: https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/xUbuntu_20.04/Release.key
+    state: present
+- name: Add Podman Repository
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '20.04'
+  apt_repository:
+    repo: deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04 /
+    state: present
+
+- name: Install General Native Packages
+  package:
+    name: "{{ packages_general }}"
+    state: latest
+- name: Install Debian Native Packages
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  apt:
+    name: "{{ packages_debian }}"
+    state: latest
+- name: Install Fedora Native Packages
+  when: ansible_distribution == 'Rocky Linux' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'Fedora'
+  yum:
+    name: "{{ packages_fedora }}"
+    state: latest
+
+
+- name: Add Flathub Remote
+  flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    method: system
+- name: Install Flatpak Packages
+  flatpak:
+    name: "{{ item }}"
+    method: system
+    state: present
+  loop: "{{ flatpaks }}"
+
+
+- name: Install Distrobox
+  shell: |
+    curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh
