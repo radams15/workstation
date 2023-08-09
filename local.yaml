@@ -11,7 +11,7 @@
       changed_when: False
 
   tasks:
-    #- include: tasks/packages.yaml
-    #- include: tasks/mounts.yaml
+    - include: tasks/packages.yaml
+    - include: tasks/mounts.yaml
     - include: tasks/surface-linux.yaml
     - include: tasks/dconf.yaml

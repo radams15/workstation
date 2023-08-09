@@ -6,5 +6,5 @@ then
 	exit 1
 fi
 
-#ansible-galaxy collection install -r requirements.yaml
+ansible-galaxy collection install -r requirements.yaml
 ansible-playbook local.yaml
