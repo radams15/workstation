@@ -3,10 +3,9 @@ toolbox_install_dir: "/opt"
 toolbox_install_for_user: "rhys"
 
 packages_general:
-  - vim
   - flatpak
   
-#  - firefox
+  - firefox
   - gnome-tweaks
   - evolution
   - gimp

@@ -6,6 +6,7 @@
     - files/packages.yaml
     - files/mounts.yaml
     - files/dconf.yaml
+    - files/vim.yaml
 
   pre_tasks:
     - name: Update Repositories
@@ -17,11 +18,12 @@
     - ansible-role-jet-brains-toolbox
 
   tasks:
-    - include: tasks/packages_redhat.yaml
-      when: ansible_distribution == 'Rocky Linux' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'Fedora' or ansible_distribution == 'RedHat'
+    #- include: tasks/packages_redhat.yaml
+    #  when: ansible_distribution == 'Rocky Linux' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'Fedora' or ansible_distribution == 'RedHat'
       
-    - include: tasks/packages_debian.yaml
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    #- include: tasks/packages_debian.yaml
+    #  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
       
-    - include: tasks/mounts.yaml
-    - include: tasks/dconf.yaml
+    #- include: tasks/mounts.yaml
+    #- include: tasks/dconf.yaml
+    - include: tasks/vim.yaml
