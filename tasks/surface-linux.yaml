@@ -9,18 +9,18 @@
     - https://github.com/linux-surface/iptsd/releases/download/v0.5.1/iptsd_0.5.1-1_amd64.deb
 
 - name: Add Surface-Specific Packages
-  when: ansible_distribution == 'Rocky Linux' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'Fedora'
+  when: ansible_distribution == 'Rocky Linux' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'Fedora' or ansible_distribution == 'RedHat'
   yum:
-    rpm: "{{ item }}"
+    name: "{{ item }}"
+    disable_gpg_check: true
     state: present
   loop:
     - https://github.com/linux-surface/linux-surface/releases/download/fedora-36-6.1.8-2/kernel-surface-devel-6.1.8-2.fc36.x86_64.rpm
     - https://github.com/linux-surface/linux-surface/releases/download/fedora-36-6.1.8-2/kernel-surface-6.1.8-2.fc36.x86_64.rpm
-    - https://github.com/linux-surface/iptsd/releases/download/v0.5.1/iptsd-0.5.1-1.fc37.x86_64.rpm
+    - https://github.com/linux-surface/iptsd/releases/download/v0.5.1/iptsd-0.5.1-1.fc34.x86_64.rpm
     
 - name: Enable iptsd
   ansible.builtin.systemd:
     name: iptsd
     enabled: true
-    state: started
     masked: no

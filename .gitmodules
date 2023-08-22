@@ -1,0 +1,6 @@
+[submodule "roles/jetbrains"]
+	path = roles/jetbrains
+	url = https://gitlab.com/tomaskadlec/ansible-role-jetbrains.git
+[submodule "roles/ansible-role-jetbrains"]
+	path = roles/ansible-role-jetbrains
+	url = https://gitlab.com/tomaskadlec/ansible-role-jetbrains

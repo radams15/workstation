@@ -1,17 +1,15 @@
+toolbox_version: "2.0.0.16559"
+toolbox_install_dir: "/opt"
+toolbox_install_for_user: "rhys"
+
 packages_general:
-  - htop
   - vim
-  - nfs-common
   - flatpak
   
-  - firefox
-  - vlc
+#  - firefox
   - gnome-tweaks
   - evolution
-  - davmail
   - gimp
-  - rhythmbox
-  - remmina
   - rsync
   - tar
   - wget
@@ -21,6 +19,7 @@ packages_general:
   - git
   - curl
   - podman
+  - virt-manager
   
   - go
   - gcc
@@ -35,10 +34,13 @@ packages_debian:
   - nfs-common
   
 packages_fedora:
-  - nfs-util
+  - nfs-utils
 
 flatpaks:
   - com.github.iwalton3.jellyfin-media-player
   - org.signal.Signal
   - com.discordapp.Discord
   - com.github.micahflee.torbrowser-launcher
+  - org.videolan.VLC
+  - org.remmina.Remmina
+  - org.gnome.Rhythmbox

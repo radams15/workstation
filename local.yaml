@@ -1,14 +1,20 @@
 ---
 - hosts: localhost
   become: true
+
   vars_files:
     - files/packages.yaml
     - files/mounts.yaml
     - files/dconf.yaml
+
   pre_tasks:
     - name: Update Repositories
+      when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '20.04'
       apt: update_cache=yes
       changed_when: False
+
+  roles:
+    - ansible-role-jet-brains-toolbox
 
   tasks:
     - include: tasks/packages.yaml
