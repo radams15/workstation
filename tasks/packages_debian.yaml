@@ -1,0 +1,15 @@
+- name: Add Podman GPG Key
+  when: ansible_distribution_version == '20.04'
+  apt_key:
+    url: https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/xUbuntu_20.04/Release.key
+    state: present
+- name: Add Podman Repository
+  when: ansible_distribution_version == '20.04'
+  apt_repository:
+    repo: deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04 /
+    state: present
+
+- name: Install Debian Native Packages
+  apt:
+    name: "{{ packages_debian }}"
+    state: latest

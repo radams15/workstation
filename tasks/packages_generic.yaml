@@ -1,0 +1,22 @@
+- name: Install General Native Packages
+  package:
+    name: "{{ packages_general }}"
+    state: latest
+
+- name: Add Flathub Remote
+  flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    method: system
+- name: Install Flatpak Packages
+  flatpak:
+    name: "{{ item }}"
+    method: system
+    state: present
+  loop: "{{ flatpaks }}"
+
+
+- name: Install Distrobox
+  shell: |
+    curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh
