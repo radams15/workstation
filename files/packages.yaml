@@ -43,3 +43,4 @@ flatpaks:
   - org.videolan.VLC
   - org.remmina.Remmina
   - org.gnome.Rhythmbox
+  - com.github.xournalpp.xournalpp
