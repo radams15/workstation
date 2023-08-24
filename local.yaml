@@ -33,3 +33,4 @@
     - include: tasks/mounts.yaml
     - include: tasks/dconf.yaml
     - include: tasks/vim.yaml
+    - include: tasks/sudoers.yaml
