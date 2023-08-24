@@ -4,7 +4,7 @@ dconf:
   - key: "/org/gnome/desktop/interface/clock-show-weekday"
     value: 'true'
   - key: "/org/gnome/desktop/interface/clock-format"
-    value: '12h'
+    value: "'12h'"
   - key: "/org/gnome/desktop/interface/show-battery-percentage"
     value: 'true'
   - key: "/org/gnome/mutter/workspaces-only-on-primary"
@@ -15,5 +15,3 @@ dconf:
     value: "['scale-monitor-framebuffer']"
   - key: "/org/gnome/settings/daemon/plugins/color/night-light-enabled"
     value: 'true'
-  - key: "/org/gnome/shell/extensions/nightthemeswitcher/time/time-source"
-    value: 'nightlight'

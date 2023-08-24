@@ -1,4 +1,4 @@
 nfs_path: "10.0.0.2:/mnt/share"
 mountpoint: "/mnt/share"
 permission: '0777'
-opts: 'rw,sync,nofail'
+shareopts: 'rw,sync,nofail'

@@ -5,7 +5,6 @@ toolbox_install_for_user: "rhys"
 packages_general:
   - flatpak
   
-  - firefox
   - gnome-tweaks
   - evolution
   - gimp
@@ -37,6 +36,7 @@ packages_fedora:
 
 flatpaks:
   - com.github.iwalton3.jellyfin-media-player
+  - org.mozilla.firefox
   - org.signal.Signal
   - com.discordapp.Discord
   - com.github.micahflee.torbrowser-launcher

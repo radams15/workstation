@@ -11,5 +11,5 @@
     src: "{{ nfs_path }}"
     path: "{{ mountpoint }}"
     fstype: nfs
-    opts: "{{ myopts }}"
+    opts: "{{ shareopts }}"
     state: mounted
