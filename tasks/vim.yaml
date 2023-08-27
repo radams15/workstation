@@ -27,13 +27,22 @@
   loop:
   - name: vim-airline
     url: https://github.com/vim-airline/vim-airline
+  - name: nerdcommenter
+    url: https://github.com/preservim/nerdcommenter
   - name: apprentice # Apprentice theme
     url: https://github.com/romainl/Apprentice
     
 - name: Copy vimrc
   become_user: rhys
   copy:
-    src: vimrc
+    src: vim/vimrc
     dest: "{{ vim_dir }}/vimrc"
+    backup: yes
+    mode: 0640
+- name: Copy vim perl extensions
+  become_user: rhys
+  copy:
+    src: vim/extensions.pl
+    dest: "{{ vim_dir }}/extensions.pl"
     backup: yes
     mode: 0640

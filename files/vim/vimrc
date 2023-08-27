@@ -1,0 +1,28 @@
+execute pathogen#infect()
+
+set expandtab
+set shiftwidth=4
+set tabstop=4
+
+set number
+
+set termguicolors
+colorscheme apprentice
+syntax on
+
+set mouse=a
+
+perl << EOF
+use Env qw/ HOME /;
+do "$HOME/.vim/extensions.pl";
+EOF
+
+"nnoremap cc :perl &comment_line <CR>
+"xnoremap cc :perl &comment_block <CR>
+
+filetype plugin on
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
