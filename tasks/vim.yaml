@@ -27,8 +27,6 @@
   loop:
   - name: vim-airline
     url: https://github.com/vim-airline/vim-airline
-  - name: nerdcommenter
-    url: https://github.com/preservim/nerdcommenter
   - name: apprentice # Apprentice theme
     url: https://github.com/romainl/Apprentice
     
@@ -42,7 +40,7 @@
 - name: Copy vim perl extensions
   become_user: rhys
   copy:
-    src: vim/extensions.pl
-    dest: "{{ vim_dir }}/extensions.pl"
+    src: vim/VimExtensions.pm
+    dest: "{{ vim_dir }}/VimExtensions.pm"
     backup: yes
     mode: 0640

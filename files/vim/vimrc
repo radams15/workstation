@@ -14,11 +14,12 @@ set mouse=a
 
 perl << EOF
 use Env qw/ HOME /;
-do "$HOME/.vim/extensions.pl";
+use lib "$HOME/.vim/";
+use VimExtensions //;
 EOF
 
-"nnoremap cc :perl &comment_line <CR>
-"xnoremap cc :perl &comment_block <CR>
+nnoremap cc :perl &comment_line <CR>
+xnoremap cc :perl &comment_block <CR>
 
 filetype plugin on
 let g:NERDCreateDefaultMappings = 1
