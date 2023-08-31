@@ -36,6 +36,7 @@ packages_fedora:
 
 flatpaks:
   - com.github.iwalton3.jellyfin-media-player
+  - org.libreoffice.LibreOffice
   - org.mozilla.firefox
   - org.signal.Signal
   - com.discordapp.Discord
