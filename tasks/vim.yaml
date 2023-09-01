@@ -1,3 +1,9 @@
+- name: Copy .vim directory
+  become_user: rhys
+  copy:
+    src: .vim
+    dest: "{{ home_dir }}"
+
 - name: Ensure .vim/{autoload,bundle} directory exists
   become_user: rhys
   file:
@@ -6,7 +12,6 @@
     recurse: no
     mode: 0750
   loop:
-    - "{{ vim_dir }}"
     - "{{ vim_dir }}/autoload"
     - "{{ vim_dir }}/bundle"
     
@@ -29,18 +34,3 @@
     url: https://github.com/vim-airline/vim-airline
   - name: apprentice # Apprentice theme
     url: https://github.com/romainl/Apprentice
-    
-- name: Copy vimrc
-  become_user: rhys
-  copy:
-    src: vim/vimrc
-    dest: "{{ vim_dir }}/vimrc"
-    backup: yes
-    mode: 0640
-- name: Copy vim perl extensions
-  become_user: rhys
-  copy:
-    src: vim/VimExtensions.pm
-    dest: "{{ vim_dir }}/VimExtensions.pm"
-    backup: yes
-    mode: 0640

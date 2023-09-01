@@ -10,6 +10,7 @@ set termguicolors
 colorscheme apprentice
 syntax on
 
+map q <Nop>
 set mouse=a
 
 perl << EOF

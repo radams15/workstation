@@ -2,7 +2,6 @@
   ansible.builtin.file:
     path: "{{ mountpoint }}"
     state: directory
-    mode: "{{ permission }}"
     owner: rhys
     group: rhys
 

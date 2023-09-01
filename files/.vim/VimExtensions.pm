@@ -3,13 +3,17 @@ use Exporter /import/;
 our @EXPORT_OK = qw/ comment_line comment_block /;
 
 my %comments = (
-    py => ['#', ''],
-    pl => ['#', ''],
+    python => ['#', ''],
+    perl => ['#', ''],
     cgi => ['#', ''],
     c => ['//', ''],
     cpp => ['//', ''],
     Makefile => ['#', ''],
     sh => ['#', ''],
+    dockerfile => ['#', ''],
+    yaml => ['#', ''],
+    asm => [';', ''],
+    html => ['<!--', '-->'],
 );
 
 my ($comment_start, $comment_end) = &comment_chars($curbuf->Name);
@@ -21,18 +25,25 @@ my ($comment_start, $comment_end) = &comment_chars($curbuf->Name);
 Internal function to find the correct characters to comment
 the current file.
 Dies if filetype not defined.
-Internal function to comment characters on a line.
 =cut
 sub comment_chars {
     my ($file_name) = @_;
 
-    (my $ext = lc $file_name) =~ s/.*\.//g;
+    my (undef, $filetype) = VIM::Eval('&filetype');
 
+    # VIM::Msg("Filetype = $filetype"); 
+
+    if(grep {$filetype} keys %comments) {
+        return @{$comments{$filetype}};
+    }
+
+    (my $ext = lc $file_name) =~ s/.*\.//g;
     if(grep {$ext} keys %comments) {
         return @{$comments{$ext}};
     }
 
-    die "Cannot find comment character for filetype: '$ext'\n";
+    VIM::Msg("Cannot find comment character for filetype: '$ext'");
+    return ('#', '');
 }
 
 =pod
