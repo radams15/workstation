@@ -34,3 +34,5 @@
     url: https://github.com/vim-airline/vim-airline
   - name: apprentice # Apprentice theme
     url: https://github.com/romainl/Apprentice
+  - name: perl-support
+    url: https://github.com/vim-perl/vim-perl
