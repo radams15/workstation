@@ -45,3 +45,7 @@ flatpaks:
   - org.remmina.Remmina
   - org.gnome.Rhythmbox
   - com.github.xournalpp.xournalpp
+
+binaries:
+  - url: https://github.com/vim/vim-appimage/releases/download/v9.0.1833/GVim-v9.0.1833.glibc2.29-x86_64.AppImage
+    dest: ~/.local/bin/vim

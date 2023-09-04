@@ -20,3 +20,13 @@
 - name: Install Distrobox
   shell: |
     curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh
+
+- name: Install User Binaries
+  become_user: rhys
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    mode: '0777'
+    owner: rhys
+  loop: "{{ binaries }}"
+

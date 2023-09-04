@@ -1,6 +1,5 @@
-use Exporter /import/;
-
-our @EXPORT_OK = qw/ comment_line comment_block /;
+# use Exporter /import/; 
+# our @EXPORT_OK = qw/ comment_line comment_block /; 
 
 my %comments = (
     python => ['#', ''],

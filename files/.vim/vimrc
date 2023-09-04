@@ -14,10 +14,11 @@ syntax on
 map q <Nop>
 set mouse=a
 
+set perldll=/usr/lib64/libperl.so
+
 perl << EOF
-use Env qw/ HOME /;
-use lib "$HOME/.vim/";
-use VimExtensions //;
+my $HOME = $ENV{HOME};
+do "$HOME/.vim/VimExtensions.pm";
 EOF
 
 nnoremap cc :perl &comment_line <CR>
