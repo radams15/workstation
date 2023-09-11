@@ -1,35 +1,34 @@
-#!/bin/bash
+execute pathogen#infect()
 
-FILE=/mnt/share/vault.img
-MNTPT=/vault
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set autoindent
 
-function mount_vault() {
-	pass="$(zenity --title="Enter Vault Password"  --password)"
+set backspace=indent,eol,start
 
-	echo -e $pass | cryptsetup open --type luks $FILE vault -
+set number
 
-	mount /dev/mapper/vault $MNTPT
+set termguicolors
+colorscheme apprentice
+syntax on
 
-	chown -R rhys:rhys $MNTPT
+map q <Nop>
+set mouse=a
 
-	echo "Mounted $FILE at $MNTPT"
-}
+let perldll=system('whereis libperl.so | sed "s/^.*: //g"')
 
-function unmount_vault() {
-	umount $MNTPT
-	cryptsetup close vault
-	echo "Unmounted $MNTPT"
-}
+perl << EOF
+my $HOME = $ENV{HOME};
+do "$HOME/.vim/VimExtensions.pm";
+EOF
 
-if [ `id -u` -ne 0 ]
-then
-	sudo $0 $@
-	exit 1
-fi
+nnoremap cc :perl &comment_line <CR>
+xnoremap cc :perl &comment_block <CR>
 
-if [ "$1" == "-u" ]
-then
-	unmount_vault
-else
-	mount_vault
-fi
+filetype plugin on
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
