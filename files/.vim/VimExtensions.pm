@@ -7,6 +7,7 @@ my %comments = (
     cgi => ['#', ''],
     c => ['//', ''],
     cpp => ['//', ''],
+    java => ['//', ''],
     Makefile => ['#', ''],
     sh => ['#', ''],
     dockerfile => ['#', ''],
@@ -30,8 +31,6 @@ sub comment_chars {
 
     my (undef, $filetype) = VIM::Eval('&filetype');
 
-    # VIM::Msg("Filetype = $filetype"); 
-
     if(grep {$filetype} keys %comments) {
         return @{$comments{$filetype}};
     }
@@ -41,8 +40,7 @@ sub comment_chars {
         return @{$comments{$ext}};
     }
 
-    VIM::Msg("Cannot find comment character for filetype: '$ext'");
-    return ('#', '');
+    return (undef, undef);
 }
 
 =pod
@@ -51,6 +49,11 @@ Internal function to comment characters on a line.
 =cut
 sub comment_row {
     my ($row) = @_;
+
+    unless ($comment_start or $comment_end) {
+        VIM::Msg("Cannot find comment character for filetype: '$ext'");
+        return;
+    }
 
     my $line = $curbuf->Get($row);
 
@@ -74,9 +77,13 @@ sub comment_line {
 }
 
 sub comment_block {
-    my ($comment_start, $comment_end) = &comment_chars($curbuf->Name);
     my ($row, $col) = $curwin->Cursor;
 
+    unless ($comment_start or $comment_end) {
+        VIM::Msg("Cannot find comment character for filetype: '$ext'");
+        return;
+    }
+    
     my (undef, $row_start, $col_start, undef) = split /\s/, (VIM::Eval('getpos("\'<")'))[1];
     my (undef, $row_end, $col_end, undef) = split /\s/, (VIM::Eval('getpos("\'>")'))[1];
 
