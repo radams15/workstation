@@ -1,11 +1,9 @@
 - name: Copy .ssh directory
-  become_user: rhys
   copy:
     src: "{{ mountpoint }}/keys/.ssh"
     dest: "{{ home_dir }}"
     
 - name: Change private key permissions
-  become_user: rhys
   file:
     path: "{{ item }}"
     state: file

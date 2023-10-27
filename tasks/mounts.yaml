@@ -1,4 +1,5 @@
 - name: check mountpoint exist
+  become: true
   ansible.builtin.file:
     path: "{{ mountpoint }}"
     state: directory
@@ -6,6 +7,7 @@
     group: rhys
 
 - name: mount network share
+  become: true
   ansible.posix.mount:
     src: "{{ nfs_path }}"
     path: "{{ mountpoint }}"

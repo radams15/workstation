@@ -1,15 +1,18 @@
 - name: Install General Native Packages
+  become: true
   package:
     name: "{{ packages_general }}"
     state: latest
 
 - name: Add Flathub Remote
+  become: true
   flatpak_remote:
     name: flathub
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
     method: system
 - name: Install Flatpak Packages
+  become: true
   flatpak:
     name: "{{ item }}"
     method: system
@@ -18,11 +21,11 @@
 
 
 - name: Install Distrobox
+  become: true
   shell: |
     curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh
 
 - name: Install User Binaries
-  become_user: rhys
   get_url:
     url: "{{ item.url }}"
     dest: "{{ item.dest }}"

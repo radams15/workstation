@@ -1,5 +1,4 @@
 - name: Set DConf Settings
-  become_user: rhys
   dconf:
       key: "{{ item['key'] }}"
       value: "{{ item['value'] | string }}"
