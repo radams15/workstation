@@ -8,12 +8,6 @@
     - files/dconf.yaml
     - files/vim.yaml
 
-  pre_tasks:
-    - name: Update Repositories
-      when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '20.04'
-      apt: update_cache=yes
-      changed_when: False
-
   roles:
     - ansible-role-jet-brains-toolbox
 
