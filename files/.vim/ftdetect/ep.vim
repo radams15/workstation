@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.html.ep set filetype=html
+au BufRead,BufNewFile *.html.ep set filetype=xml
