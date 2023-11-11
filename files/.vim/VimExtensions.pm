@@ -14,6 +14,7 @@ my %comments = (
     yaml => ['#', ''],
     asm => [';', ''],
     html => ['<!--', '-->'],
+    vimrc => ['"', ''],
 );
 
 my ($comment_start, $comment_end) = &comment_chars($curbuf->Name);
