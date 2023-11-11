@@ -27,8 +27,20 @@ nnoremap cc :perl &comment_line <CR>
 xnoremap cc :perl &comment_block <CR>
 
 filetype plugin on
+filetype plugin indent on
 let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
+
+" Nerd Tree Config
+
+" Open the nerd tree
+nnoremap <C-t> :NERDTreeMirror<CR>:NERDTreeFocus<CR>
+
+" open files in a new tab
+let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif

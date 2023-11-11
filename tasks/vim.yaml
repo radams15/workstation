@@ -26,6 +26,10 @@
     update: yes
     recursive: no
   loop:
+  - name: nerdtree
+    url: https://github.com/preservim/nerdtree
+  - name: devicons
+    url: https://github.com/ryanoasis/vim-devicons
   - name: vim-airline
     url: https://github.com/vim-airline/vim-airline
   - name: apprentice # Apprentice theme

@@ -5,6 +5,17 @@ dconf:
     value: 'true'
   - key: "/org/gnome/desktop/interface/clock-format"
     value: "'12h'"
+
+  - key: "/org/gnome/desktop/interface/document-font-name"
+    value: "'SF Pro Text 11'"
+  - key: "/org/gnome/desktop/interface/font-name"
+    value: "'SF Pro Text 11'"
+  - key: "/org/gnome/desktop/wm/preferences/titlebar-font"
+    value: "'SF Pro Text 11'"
+
+  - key: "/org/gnome/terminal/legacy/theme-variant"
+    value: "'system'"
+
   - key: "/org/gnome/desktop/interface/show-battery-percentage"
     value: 'true'
   - key: "/org/gnome/mutter/workspaces-only-on-primary"

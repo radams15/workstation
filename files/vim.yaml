@@ -1,2 +1,2 @@
-home_dir: "/home/rhys"
+home_dir: "{{ ansible_env.HOME }}"
 vim_dir: "{{ home_dir }}/.vim"
