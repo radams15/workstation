@@ -17,6 +17,11 @@ my %comments = (
     vimrc => ['"', ''],
 );
 
+my %themes = (
+    light => flattened_light,
+    dark => flattened_dark
+);
+
 my ($comment_start, $comment_end) = &comment_chars($curbuf->Name);
 
 ## Internal Functions ##
@@ -91,6 +96,20 @@ sub comment_block {
     for ($row_start .. $row_end) {
         &comment_row($_);
     }
+}
+
+sub set_theme {
+    my $cmdout = `env LD_LIBRARY_PATH= dbus-send --session --dest=org.gnome.SettingsDaemon.Color --print-reply /org/gnome/SettingsDaemon/Color org.freedesktop.DBus.Properties.Get string:'org.gnome.SettingsDaemon.Color' string:'NightLightActive'`;
+
+    my $theme;
+
+    if($cmdout =~ /boolean true/g) {
+        $theme = $themes{dark};
+    } else {
+        $theme = $themes{light};
+    }
+
+    VIM::DoCommand("color $theme");
 }
 
 1;

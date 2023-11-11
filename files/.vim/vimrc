@@ -10,7 +10,6 @@ set backspace=indent,eol,start
 set number
 
 set termguicolors
-colorscheme apprentice
 syntax on
 
 map q <Nop>
@@ -25,6 +24,8 @@ EOF
 
 nnoremap cc :perl &comment_line <CR>
 xnoremap cc :perl &comment_block <CR>
+
+perl &set_theme;
 
 filetype plugin on
 filetype plugin indent on

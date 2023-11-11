@@ -48,7 +48,7 @@ flatpaks:
   - com.github.flxzt.rnote
   - com.github.fabiocolacio.marker
   - org.gnome.FileRoller
-  - org.wxhexeditor.wxHexEditor
+  - com.github.afrantzis.Bless
 
 binaries:
   - url: https://github.com/vim/vim-appimage/releases/download/v9.0.1833/GVim-v9.0.1833.glibc2.29-x86_64.AppImage
