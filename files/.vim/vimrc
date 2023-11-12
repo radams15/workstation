@@ -41,7 +41,7 @@ let g:NERDCommentEmptyLines = 1
 nnoremap <C-t> :NERDTreeMirror<CR>:NERDTreeFocus<CR>
 
 " open files in a new tab
-let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
+" let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
