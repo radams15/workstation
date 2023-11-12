@@ -22,7 +22,7 @@ my %themes = (
     dark => flattened_dark
 );
 
-my ($comment_start, $comment_end) = &comment_chars($curbuf->Name);
+my ($comment_start, $comment_end);
 
 ## Internal Functions ##
 
@@ -57,8 +57,12 @@ sub comment_row {
     my ($row) = @_;
 
     unless ($comment_start or $comment_end) {
-        VIM::Msg("Cannot find comment character for filetype: '$ext'");
-        return;
+        ($comment_start, $comment_end) = &comment_chars($curbuf->Name);
+        
+        unless ($comment_start or $comment_end) {
+            VIM::Msg("Cannot find comment character for filetype: '$ext'");
+            return;
+        }
     }
 
     my $line = $curbuf->Get($row);
@@ -86,8 +90,12 @@ sub comment_block {
     my ($row, $col) = $curwin->Cursor;
 
     unless ($comment_start or $comment_end) {
-        VIM::Msg("Cannot find comment character for filetype: '$ext'");
-        return;
+        ($comment_start, $comment_end) = &comment_chars($curbuf->Name);
+        
+        unless ($comment_start or $comment_end) {
+            VIM::Msg("Cannot find comment character for filetype: '$ext'");
+            return;
+        }
     }
     
     my (undef, $row_start, $col_start, undef) = split /\s/, (VIM::Eval('getpos("\'<")'))[1];
