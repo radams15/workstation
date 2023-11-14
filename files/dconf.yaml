@@ -26,3 +26,5 @@ dconf:
     value: "['scale-monitor-framebuffer']"
   - key: "/org/gnome/settings/daemon/plugins/color/night-light-enabled"
     value: 'true'
+  - key: "/org/gnome/desktop/background/picture-uri"
+    value: "'{{ playbook_dir }}/files/wallpaper.jpg'"

@@ -1,0 +1,4 @@
+- name: Copy .bashrc
+  copy:
+    src: .bashrc
+    dest: "{{ home_dir }}"
