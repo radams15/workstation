@@ -30,9 +30,11 @@ packages_general:
   
 packages_debian:
   - nfs-common
+  - cpanminus
   
 packages_fedora:
   - nfs-utils
+  - perl-App-cpanminus
 
 flatpaks:
   - com.github.iwalton3.jellyfin-media-player
@@ -53,3 +55,9 @@ flatpaks:
 binaries:
   - url: https://github.com/vim/vim-appimage/releases/download/v9.0.1833/GVim-v9.0.1833.glibc2.29-x86_64.AppImage
     dest: ~/.local/bin/vim
+
+cpan:
+  - Devel::REPL
+
+pip:
+  - requests

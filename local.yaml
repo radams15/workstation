@@ -12,22 +12,22 @@
     - ansible-role-jet-brains-toolbox
 
   tasks:
-    # - name: Display all variables/facts known for a host 
-      # debug: 
-        # var: hostvars[inventory_hostname] 
-      # tags: debug_info 
-#  
-    # - include: tasks/packages_redhat.yaml 
-      # when: ansible_distribution == 'Rocky Linux' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'Fedora' or ansible_os_family == 'RedHat' 
-      #  
-    # - include: tasks/packages_debian.yaml 
-      # when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu' 
-      #  
-    # - include: tasks/packages_generic.yaml 
-    # - include: tasks/mounts.yaml 
+    - name: Display all variables/facts known for a host
+      debug:
+        var: hostvars[inventory_hostname]
+      tags: debug_info
+
+    - include: tasks/packages_redhat.yaml
+      when: ansible_distribution == 'Rocky Linux' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'Fedora' or ansible_os_family == 'RedHat'
+      
+    - include: tasks/packages_debian.yaml
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+      
+    - include: tasks/packages_generic.yaml
+    - include: tasks/mounts.yaml
     - include: tasks/dconf.yaml
-    # - include: tasks/vim.yaml 
+    - include: tasks/vim.yaml
     - include: tasks/bash.yaml
-    # - include: tasks/fonts.yaml 
-    # - include: tasks/sudoers.yaml 
-    # - include: tasks/keys.yaml 
+    - include: tasks/fonts.yaml
+    - include: tasks/sudoers.yaml
+    - include: tasks/keys.yaml

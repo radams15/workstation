@@ -34,3 +34,14 @@
     owner: rhys
   loop: "{{ binaries }}"
 
+- name: Install cpan packages
+  cpanm:
+    name: "{{ item }}"
+    notest: True
+  loop: "{{ cpan }}"
+
+- name: Install pip packages
+  pip:
+    name: "{{ item }}"
+    extra_args: --user
+  loop: "{{ pip }}"
