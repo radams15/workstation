@@ -12,6 +12,11 @@
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
     method: system
 
+- name: Update Flatpaks
+  become: true
+  shell:
+    cmd: flatpak update --noninteractive
+
 - name: Install Flatpak Packages
   become: true
   flatpak:

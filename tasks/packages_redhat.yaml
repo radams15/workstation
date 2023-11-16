@@ -4,6 +4,10 @@
     name: "codeready-builder-for-rhel-{{ ansible_distribution_major_version }}-x86_64-rpms"
   when: ansible_os_family == 'RedHat'
 
+- name: Update Packages
+  become: true
+  yum: name=* state=latest
+
 - name: Add EPEL Key
   become: true
   rpm_key:

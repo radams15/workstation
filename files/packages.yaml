@@ -31,10 +31,12 @@ packages_general:
 packages_debian:
   - nfs-common
   - cpanminus
+  - clangd
   
 packages_fedora:
   - nfs-utils
   - perl-App-cpanminus
+  - clang-tools-extra
 
 flatpaks:
   - com.github.iwalton3.jellyfin-media-player

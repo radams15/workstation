@@ -1,8 +1,11 @@
 - name: Update Repositories
   become: true
-  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '20.04'
   apt: update_cache=yes
   changed_when: False
+
+- name: Upgrade Packages
+  become: true
+  apt: upgrade=dist force_apt_get=yes
  
 - name: Add Podman GPG Key
   become: true
