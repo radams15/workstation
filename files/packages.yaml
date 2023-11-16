@@ -58,6 +58,7 @@ binaries:
 
 cpan:
   - Devel::REPL
+  - Perl::LanguageServer
 
 pip:
   - requests

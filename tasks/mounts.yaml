@@ -1,16 +1,16 @@
 - name: check mountpoint exist
   become: true
   ansible.builtin.file:
-    path: "{{ mountpoint }}"
+    path: "{{ mntshare_mountpoint }}"
     state: directory
-    owner: rhys
-    group: rhys
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
 
 - name: mount network share
   become: true
   ansible.posix.mount:
-    src: "{{ nfs_path }}"
-    path: "{{ mountpoint }}"
+    src: "{{ mntshare_path }}"
+    path: "{{ mntshare_mountpoint }}"
     fstype: nfs
-    opts: "{{ shareopts }}"
+    opts: "{{ mntshare_shareopts }}"
     state: mounted

@@ -34,9 +34,11 @@
     url: https://github.com/vim-airline/vim-airline
   - name: perl-support
     url: https://github.com/vim-perl/vim-perl
+  - name: vim-lsc
+    url: https://github.com/natebosch/vim-lsc
+  - name: vim-autocomplpop
+    url: https://github.com/vim-scripts/AutoComplPop
 
   - name: flattened # Solarized theme
     url: https://github.com/romainl/flattened
-  - name: apprentice # Apprentice theme
-    url: https://github.com/romainl/Apprentice
 

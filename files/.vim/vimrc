@@ -4,8 +4,12 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set autoindent
+set completeopt=longest,menuone
 
 set backspace=indent,eol,start
+
+" Enter key selects autocomplete item
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 set number
 
@@ -47,3 +51,7 @@ nnoremap wq :wq <CR>
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+
+let g:lsc_auto_map = v:true
+let g:lsc_server_commands = {'perl': 'perl -MPerl::LanguageServer'}
