@@ -29,6 +29,9 @@ unset rc
 export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 export EDITOR=vim
 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+
 PATH="/home/rhys/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/rhys/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/rhys/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
