@@ -19,7 +19,7 @@ syntax on
 map q <Nop>
 set mouse=a
 
-let perldll=system('whereis libperl.so | sed "s/^.*: //g"')
+let perldll=system('ldd /usr/bin/perl | grep -oE "\/.*(libperl.so[\.0-9]*)"')
 
 perl << EOF
 my $HOME = $ENV{HOME};
