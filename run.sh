@@ -1,4 +1,10 @@
 #!/bin/sh
 
 ansible-galaxy collection install -r requirements.yaml
-ansible-playbook local.yaml
+
+if [ "$1" != "" ]
+then
+    ansible-playbook local.yaml --tags "$1"
+else
+    ansible-playbook local.yaml
+fi

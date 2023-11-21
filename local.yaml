@@ -19,15 +19,17 @@
 
     - include: tasks/packages_redhat.yaml
       when: ansible_distribution == 'Rocky Linux' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'Fedora' or ansible_os_family == 'RedHat'
+      tags: ['desktop']
       
     - include: tasks/packages_debian.yaml
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+      tags: ['desktop']
       
-    - include: tasks/packages_generic.yaml
-    - include: tasks/mounts.yaml
-    - include: tasks/dconf.yaml
-    - include: tasks/vim.yaml
-    - include: tasks/bash.yaml
-    - include: tasks/fonts.yaml
-    - include: tasks/sudoers.yaml
-    - include: tasks/keys.yaml
+    - include: tasks/packages_generic.yaml tags=desktop
+    - include: tasks/mounts.yaml tags=desktop
+    - include: tasks/dconf.yaml tags=desktop
+    - include: tasks/vim.yaml tags=desktop,headless
+    - include: tasks/bash.yaml tags=desktop,headless
+    - include: tasks/fonts.yaml tags=desktop
+    - include: tasks/sudoers.yaml tags=desktop
+    - include: tasks/keys.yaml tags=desktop

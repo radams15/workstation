@@ -9,7 +9,7 @@ set completeopt=longest,menuone
 set backspace=indent,eol,start
 
 " Enter key selects autocomplete item
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 set number
 

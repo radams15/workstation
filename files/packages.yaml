@@ -61,6 +61,7 @@ binaries:
 cpan:
   - Devel::REPL
   - Perl::LanguageServer
+  - Mojolicious::Plugin::AssetPack
 
 pip:
   - requests
