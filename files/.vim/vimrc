@@ -9,7 +9,7 @@ set completeopt=longest,menuone
 set backspace=indent,eol,start
 
 " Enter key selects autocomplete item
-inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 set number
 
@@ -20,6 +20,7 @@ map q <Nop>
 set mouse=a
 
 let perldll=system('ldd /usr/bin/perl | grep -oE "\/.*(libperl.so[\.0-9]*)"')
+
 
 perl << EOF
 my $HOME = $ENV{HOME};
