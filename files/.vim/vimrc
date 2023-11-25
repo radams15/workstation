@@ -47,15 +47,14 @@ nnoremap <C-t> :NERDTreeMirror<CR>:NERDTreeFocus<CR>
 nnoremap ww :w <CR>
 nnoremap wq :wq <CR>
 
-" open files in a new tab
-" let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
-
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+autocmd FileType markdown let g:lsc_enable_autocomplete = v:false
 
 let g:lsc_auto_map = v:true
 let g:lsc_server_commands = {
             \'perl': 'perl -MPerl::LanguageServer',
-            \'c' : 'clangd'
+            \'c' : 'clangd',
+            \'tex' : 'texlab'
 \}

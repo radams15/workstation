@@ -39,6 +39,24 @@
     owner: rhys
   loop: "{{ binaries }}"
 
+- name: Get Zips
+  get_url:
+    url: "{{ item.url }}"
+    dest: "/tmp/{{ item.name }}"
+    mode: '0777'
+    owner: rhys
+  loop: "{{ zips }}"
+
+- name: Unzip Zips
+  unarchive:
+    src: "/tmp/{{ item.name }}"
+    dest: "{{ item.dest }}"
+    include: "{{ item.files }}"
+    mode: '0777'
+    owner: rhys
+  loop: "{{ zips }}"
+
+
 - name: Install cpan packages
   cpanm:
     name: "{{ item }}"

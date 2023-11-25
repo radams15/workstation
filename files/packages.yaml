@@ -58,6 +58,13 @@ binaries:
   - url: https://github.com/vim/vim-appimage/releases/download/v9.0.1833/GVim-v9.0.1833.glibc2.29-x86_64.AppImage
     dest: ~/.local/bin/vim
 
+zips:
+  - name: texlab.tar.gz
+    url: https://github.com/latex-lsp/texlab/releases/download/v5.11.0/texlab-x86_64-linux.tar.gz
+    files:
+      - texlab
+    dest: ~/.local/bin/
+
 cpan:
   - Devel::REPL
   - Perl::LanguageServer

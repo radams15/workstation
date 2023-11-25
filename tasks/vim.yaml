@@ -34,8 +34,6 @@
     url: https://github.com/vim-airline/vim-airline
   - name: perl-support
     url: https://github.com/vim-perl/vim-perl
-  - name: vimtex
-    url: https://github.com/lervag/vimtex
   - name: vim-lsc
     url: https://github.com/natebosch/vim-lsc
   - name: vim-autocomplpop
