@@ -1,6 +1,6 @@
 - name: Copy .ssh directory
   copy:
-    src: "{{ mountpoint }}/keys/.ssh"
+    src: "{{ mntshare_mountpoint }}/keys/.ssh"
     dest: "{{ home_dir }}"
     
 - name: Change private key permissions
