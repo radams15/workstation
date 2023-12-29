@@ -35,7 +35,7 @@
   get_url:
     url: "{{ item.url }}"
     dest: "{{ item.dest }}"
-    mode: '0777'
+    mode: '0755'
     owner: rhys
   loop: "{{ binaries }}"
 

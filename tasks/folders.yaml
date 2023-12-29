@@ -1,0 +1,6 @@
+- name: Copy templates directory
+  copy:
+    src: Templates
+    dest: "{{ home_dir }}"
+
+

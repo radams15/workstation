@@ -57,6 +57,8 @@ flatpaks:
 binaries:
   - url: https://github.com/vim/vim-appimage/releases/download/v9.0.1833/GVim-v9.0.1833.glibc2.29-x86_64.AppImage
     dest: ~/.local/bin/vim
+  - url: https://mirrors.ctan.org/support/latexcount/latexcount.pl
+    dest: ~/.local/bin/latexcount
 
 zips:
   - name: texlab.tar.gz
@@ -64,6 +66,11 @@ zips:
     files:
       - texlab
     dest: ~/.local/bin/
+  - name: binaryninja.zip
+    files:
+      - binaryninja
+    url: https://cdn.binary.ninja/installers/BinaryNinja-demo.zip
+    dest: ~/
 
 cpan:
   - Devel::REPL

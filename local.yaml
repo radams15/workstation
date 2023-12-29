@@ -26,7 +26,11 @@
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
       tags:
         - desktop
-      
+
+     - include: tasks/folders.yaml
+      tags:
+        - desktop     
+
     - include: tasks/packages_generic.yaml
       tags:
         - desktop
