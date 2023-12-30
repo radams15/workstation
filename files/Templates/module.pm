@@ -3,7 +3,7 @@ package Module;
 use warnings;
 use strict;
 use utf8;
-use 5.00030;
+use 5.030_000;
 
 use Exporter 'import';
 

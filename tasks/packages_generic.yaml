@@ -68,3 +68,7 @@
     name: "{{ item }}"
     extra_args: --user
   loop: "{{ pip }}"
+
+- name: Install golang packages
+  ansible.builtin.command: "go install {{ item }}"
+  loop: "{{ golang }}"
