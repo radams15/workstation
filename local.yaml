@@ -27,7 +27,7 @@
       tags:
         - desktop
 
-     - include: tasks/folders.yaml
+    - include: tasks/folders.yaml
       tags:
         - desktop     
 

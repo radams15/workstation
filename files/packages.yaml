@@ -68,7 +68,7 @@ zips:
     dest: ~/.local/bin/
   - name: binaryninja.zip
     files:
-      - binaryninja
+      - binaryninja/*
     url: https://cdn.binary.ninja/installers/BinaryNinja-demo.zip
     dest: ~/
 

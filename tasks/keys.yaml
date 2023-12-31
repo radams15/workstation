@@ -2,6 +2,7 @@
   copy:
     src: "{{ mntshare_mountpoint }}/keys/.ssh"
     dest: "{{ home_dir }}"
+  when: mntshare_stat == 0 # When mntshare is mounted
     
 - name: Change private key permissions
   file:
@@ -11,3 +12,4 @@
   with_items:
     - "{{ home_dir }}/.ssh/id_rsa"
     - "{{ home_dir }}/.ssh/warwick_rsa"
+  when: mntshare_stat == 0 # When mntshare is mounted

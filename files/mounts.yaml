@@ -1,4 +1,5 @@
-mntshare_path: "10.0.0.2:/mnt/share"
+mntshare_host: "10.0.0.2"
+mntshare_path: "{{ mntshare_host }}:/mnt/share"
 mntshare_mountpoint: "/mnt/share"
 mntshare_permission: '0777'
 mntshare_shareopts: 'rw,sync,nofail'

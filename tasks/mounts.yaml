@@ -1,3 +1,19 @@
+- name: Check network share mountpoint
+  command: mountpoint -q {{mntshare_mountpoint}}
+  register: mntshare_stat
+  failed_when: False
+  changed_when: False
+  
+- name: ICMP ping mntshare host to check if up
+  delegate_to: localhost
+  command: ping -c 2 "{{ mntshare_host }}"
+  changed_when: false 
+  check_mode: false
+  ignore_errors: true
+  register: host_ping
+  failed_when: host_ping.rc != 0
+  
+
 - name: check mountpoint exist
   become: true
   ansible.builtin.file:
@@ -5,12 +21,22 @@
     state: directory
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
+  when: mntshare_stat != 0 and host_ping.rc == 0 # When mntshare is not mounted and host up
 
 - name: mount network share
   become: true
+  ignore_errors: true
   ansible.posix.mount:
     src: "{{ mntshare_path }}"
     path: "{{ mntshare_mountpoint }}"
     fstype: nfs
     opts: "{{ mntshare_shareopts }}"
     state: mounted
+  register: mntshare_mounted
+  when: mntshare_stat != 0 and host_ping.rc == 0 # When mntshare is not mounted and host up
+  
+- name: Check network share mountpoint
+  command: mountpoint -q {{mntshare_mountpoint}}
+  register: mntshare_stat
+  failed_when: False
+  changed_when: False
