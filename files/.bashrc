@@ -44,7 +44,7 @@ export PERL_MM_OPT="INSTALL_BASE=/home/rhys/perl5"; export PERL_MM_OPT;
 alias l='ls'
 alias ll='ls -lah'
 alias cls='clear'
-alias lvim='vim -u NONE'
+alias lvim='vim -u ~/.vim/vimrc.light'
 
 function len {
     echo $1 | wc -c
