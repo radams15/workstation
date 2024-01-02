@@ -17,11 +17,11 @@ dconf:
     value: "'system'"
 
   - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding"
-    value: "<Primary><Alt>t"
+    value: "'<Primary><Alt>t'"
   - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
-    value: "gnome-terminal"
+    value: "'gnome-terminal'"
   - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
-    value: "Terminal"
+    value: "'Terminal'"
   - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
     value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
 

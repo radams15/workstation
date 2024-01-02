@@ -34,6 +34,7 @@ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 export PATH=$PATH:~/go/bin:~/binaryninja:~/idafree-8.3
 
 source /home/rhys/.local/bin/watcom/owsetenv.sh
+eval "$(starship init bash)"
 
 export PATH="/home/rhys/perl5/bin${PATH:+:${PATH}}"; export PATH;
 export PERL5LIB="/home/rhys/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;

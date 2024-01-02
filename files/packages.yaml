@@ -72,6 +72,12 @@ zips:
     url: https://cdn.binary.ninja/installers/BinaryNinja-demo.zip
     dest: ~/
 
+  - name: starship
+    url: https://github.com/starship/starship/releases/download/v1.17.0/starship-x86_64-unknown-linux-gnu.tar.gz
+    files:
+      - starship
+    dest: ~/.local/bin
+
 cpan:
   - Devel::REPL
   - Perl::LanguageServer
