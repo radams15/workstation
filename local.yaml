@@ -32,12 +32,15 @@
         - desktop     
 
     - include: tasks/packages_generic.yaml
+      when: ansible_system == 'Linux'
       tags:
         - desktop
     - include: tasks/mounts.yaml
+      when: ansible_system == 'Linux'
       tags:
         - desktop
     - include: tasks/dconf.yaml
+      when: ansible_system == 'Linux'
       tags:
         - desktop
     - include: tasks/vim.yaml
@@ -49,6 +52,7 @@
         - desktop
         - headless
     - include: tasks/fonts.yaml
+      when: ansible_system == 'Linux'
       tags:
         - desktop
     - include: tasks/sudoers.yaml
