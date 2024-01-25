@@ -1,0 +1,4 @@
+- name: Install Mac Native Packages
+  homebrew:
+    name: "{{ packages_mac }}"
+    state: present

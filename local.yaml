@@ -17,47 +17,55 @@
         var: hostvars[inventory_hostname]
       tags: debug_info
 
-    - include: tasks/packages_redhat.yaml
-      when: ansible_distribution == 'Rocky Linux' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'Fedora' or ansible_os_family == 'RedHat'
+    - import_tasks: tasks/packages_redhat.yaml
+      when: ansible_system == 'Linux' and (ansible_distribution == 'Rocky Linux' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'Fedora' or ansible_os_family == 'RedHat')
       tags:
         - desktop
       
-    - include: tasks/packages_debian.yaml
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    - import_tasks: tasks/packages_debian.yaml
+      when: ansible_system == 'Linux' and (ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu')
       tags:
         - desktop
 
-    - include: tasks/folders.yaml
+    - import_tasks: tasks/packages_mac.yaml
+      when: ansible_system == 'Darwin'
+      tags:
+        - desktop
+
+    - import_tasks: tasks/folders.yaml
+      when: ansible_system == 'Linux'
       tags:
         - desktop     
 
-    - include: tasks/packages_generic.yaml
+    - import_tasks: tasks/packages_generic.yaml
       when: ansible_system == 'Linux'
       tags:
         - desktop
-    - include: tasks/mounts.yaml
+    - import_tasks: tasks/mounts.yaml
       when: ansible_system == 'Linux'
       tags:
         - desktop
-    - include: tasks/dconf.yaml
+    - import_tasks: tasks/dconf.yaml
       when: ansible_system == 'Linux'
       tags:
         - desktop
-    - include: tasks/vim.yaml
+    - import_tasks: tasks/vim.yaml
       tags:
         - desktop
         - headless
-    - include: tasks/bash.yaml
+    - import_tasks: tasks/bash.yaml
       tags:
         - desktop
         - headless
-    - include: tasks/fonts.yaml
+    - import_tasks: tasks/fonts.yaml
       when: ansible_system == 'Linux'
       tags:
         - desktop
-    - include: tasks/sudoers.yaml
+    - import_tasks: tasks/sudoers.yaml
+      when: ansible_system == 'Linux'
       tags:
         - desktop
-    - include: tasks/keys.yaml
+    - import_tasks: tasks/keys.yaml
+      when: ansible_system == 'Linux'
       tags:
         - desktop

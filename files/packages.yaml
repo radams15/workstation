@@ -38,6 +38,10 @@ packages_fedora:
   - perl-App-cpanminus
   - clang-tools-extra
 
+packages_mac:
+  - vim
+  - starship
+
 flatpaks:
   - com.github.iwalton3.jellyfin-media-player
   - org.libreoffice.LibreOffice

@@ -32,8 +32,8 @@ export EDITOR=vim
 export LD_LIBRARY_PATH=
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 export PATH=$PATH:~/go/bin:~/binaryninja:~/idafree-8.3
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
-source /home/rhys/.local/bin/watcom/owsetenv.sh
 eval "$(starship init bash)"
 
 export PATH="/home/rhys/perl5/bin${PATH:+:${PATH}}"; export PATH;
