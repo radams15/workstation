@@ -32,11 +32,13 @@ packages_debian:
   - nfs-common
   - cpanminus
   - clangd
+  - g++
   
 packages_fedora:
   - nfs-utils
   - perl-App-cpanminus
   - clang-tools-extra
+  - gcc-c++
 
 packages_mac:
   - vim
@@ -48,7 +50,7 @@ flatpaks:
   - org.mozilla.firefox
   - org.signal.Signal
   - com.discordapp.Discord
-  - com.github.micahflee.torbrowser-launcher
+  - org.torproject.torbrowser-launcher
   - org.videolan.VLC
   - org.remmina.Remmina
   - org.gnome.Rhythmbox
@@ -59,8 +61,6 @@ flatpaks:
   - com.github.afrantzis.Bless
 
 binaries:
-  - url: https://github.com/vim/vim-appimage/releases/download/v9.0.1833/GVim-v9.0.1833.glibc2.29-x86_64.AppImage
-    dest: ~/.local/bin/vim
   - url: https://mirrors.ctan.org/support/latexcount/latexcount.pl
     dest: ~/.local/bin/latexcount
 
