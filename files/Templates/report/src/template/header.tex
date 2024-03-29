@@ -1,0 +1,44 @@
+
+\thispagestyle{plain}\pagestyle{fancy}
+
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{
+    \fancyhead[L]{\textit{\textcolor{heading-grey}{\moduletitle{}}}}
+	\fancyfoot[R]{\\ \textcolor{heading-grey}{\newline Page \thepage\ of \pageref{LastPage}}}
+}
+\fancypagestyle{fancy}{
+    \fancyhead[L]{\textit{\textcolor{heading-grey}{\moduletitle{}}}}
+    \fancyhead[R]{}
+	\fancyfoot[R]{\\ \textcolor{heading-grey}{\newline Page \thepage\ of \pageref{LastPage}}}
+    \fancyfoot[C]{}
+    \fancyfoot[L]{\\ \textcolor{heading-grey}{\newline \moduletitleshort{}}}
+}
+
+\renewcommand{\headrulewidth}{0pt}
+\setmainfont[
+    UprightFont = {Montserrat Light},
+    BoldFont = {Montserrat Bold},
+    ItalicFont = {Montserrat Italic},
+    BoldItalicFont = {Montserrat Bold Italic}
+]{Montserrat}
+
+
+
+\perlnewcommand\includefile[2]{
+    my ($title, $name) = @_;
+    return "\\section{$title}\n\\input{src/$name}";
+}
+
+\newcommand{\figureRef}[1]{ \ref{fig:#1} }
+
+\perlnewcommand\figureImage[2]{
+	my ($name, $caption) = @_;
+
+	return sprintf '\
+	\begin{figure}[!htb]
+	\includegraphics[width=0.5\textwidth]{%s}
+	\caption{%s}
+	\label{fig:%s}
+	\end{figure}', $name, $caption, $name;
+}

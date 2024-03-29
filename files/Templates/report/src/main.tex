@@ -1,0 +1,36 @@
+\input{src/template/preamble.tex}
+
+\def\moduletitle{Module Title}
+\def\moduletitleshort{Acronym}
+
+\begin{document}
+
+\input{src/template/header.tex}
+
+\title{Title}
+\author{Author}
+
+\maketitle
+
+\newpage
+
+\tableofcontents{}
+
+\newpage
+
+\includefile{Section 1}{section1}
+
+\newpage
+
+\begin{appendices}
+
+\includefile{}{appendix}
+
+\end{appendices}
+
+\newpage
+
+\printbibliography
+
+\end{document}
+

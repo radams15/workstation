@@ -1,0 +1,156 @@
+\documentclass[11pt,oneside,a4paper]{article}
+\usepackage[%
+	a4paper,%
+	left = 20mm,%
+	right = 20mm,%
+	textwidth = 178mm,%
+	top = 35mm,%
+	bottom = 30mm,%
+	headheight=70pt,%
+headsep=25pt,%
+]{geometry}
+\usepackage{graphicx}
+\usepackage[inkscapeformat=png]{svg}
+\usepackage{transparent}
+\usepackage{lastpage}
+\usepackage{exsheets}
+\usepackage{fontspec}
+\setmainfont{Montserrat}
+\setmainfont{Noto Sans}
+\usepackage[style=authoryear-ibid,backend=bibtex]{biblatex}
+\usepackage{perltex}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks = true,
+    allcolors  = link-blue, 
+}
+\usepackage{bm}
+\usepackage{mwe}
+\usepackage[absolute]{textpos}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+\usepackage{xspace}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{color,colortbl}
+\usepackage{array,booktabs}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{link-blue}{RGB}{6,69,173}
+\definecolor{dark-green}{RGB}{52,133,62}
+\definecolor{light-blue}{RGB}{127,180,240}
+\definecolor{dark-blue}{RGB}{72,120,224}
+\definecolor{heading-grey}{RGB}{128,128,128}
+\definecolor{heading2-grey}{RGB}{200,200,200}
+\definecolor{Critical}{RGB}{192,0,0}
+\definecolor{High}{RGB}{255,0,0}
+\definecolor{Medium}{RGB}{255,192,0}
+\definecolor{Low}{RGB}{255,255,0}
+\definecolor{Informational}{RGB}{94,185,255}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\newcommand{\email}[1]{\href{mailto://#1}{#1}}
+\newcommand{\newchapter}[1]{{\section*{#1}
+		\addcontentsline{toc}{chapter}{#1}}}
+\newcommand{\newsection}[1]{{\subsection*{#1}
+		\addcontentsline{toc}{section}{#1}}}
+\newcommand{\newsubsection}[1]{{\subsubsection*{#1}
+		\addcontentsline{toc}{subsection}{#1}}}
+%\usepackage[skip=10pt plus1pt, indent=0pt]{parskip}
+
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+\makeatletter
+\renewcommand\tableofcontents{%
+	\if@twocolumn
+	\@restonecoltrue\onecolumn
+	\else
+	\@restonecolfalse
+	\fi
+	\section*{\contentsname
+		\@mkboth{%
+			\MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+	\@starttoc{toc}%
+	\if@restonecol\twocolumn\fi
+}
+\makeatother
+
+\usepackage{titlesec}
+\usepackage{minted}
+
+
+% \titleformat{command}[shape]{format}{label}{sep}{before}[after]
+% \titlespacing{command}{left spacing}{before spacing}{after spacing}[right]
+
+\titlespacing{\section}{0pt}{1em}{0.5em}
+\titlespacing{\subsection}{0pt}{0em}{0.25em}
+
+\usepackage{setspace}
+\setstretch{1.15}
+
+\newcommand{\exercise}[1]{\fbox{
+        \parbox{\textwidth}{
+            \textbf{Exercise:}
+            #1
+        }
+    }
+}
+
+\newcommand{\headerspace}[0]{\vspace{12pt}}
+
+
+\usepackage{fancyhdr}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tikzpagenodes}
+
+
+
+\graphicspath{ {./images/} }
+\addbibresource{refs.bib}
+\setcounter{tocdepth}{2}
+
+\usepackage[toc,page]{appendix}
