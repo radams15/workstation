@@ -22,3 +22,4 @@ EOF
 
 nnoremap cc :perl &comment_line <CR>
 xnoremap cc :perl &comment_block <CR>
+nnoremap ws cs

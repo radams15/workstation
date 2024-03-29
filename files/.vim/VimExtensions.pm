@@ -18,8 +18,8 @@ my %comments = (
 );
 
 my %themes = (
-    light => flattened_light,
-    dark => flattened_dark
+    light => 'gruvbox',
+    dark => 'gruvbox'
 );
 
 my ($comment_start, $comment_end);
@@ -110,14 +110,18 @@ sub set_theme {
     my $cmdout = `env LD_LIBRARY_PATH= dbus-send --session --dest=org.gnome.SettingsDaemon.Color --print-reply /org/gnome/SettingsDaemon/Color org.freedesktop.DBus.Properties.Get string:'org.gnome.SettingsDaemon.Color' string:'NightLightActive'`;
 
     my $theme;
+    my $bg;
 
     if($cmdout =~ /boolean true/g) {
         $theme = $themes{dark};
+        $bg = 'dark';
     } else {
         $theme = $themes{light};
+        $bg = 'light';
     }
 
     VIM::DoCommand("color $theme");
+    VIM::DoCommand("set bg=$bg");
 }
 
 1;

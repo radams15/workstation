@@ -1,4 +1,4 @@
-execute pathogen#infect()
+packloadall
 
 set expandtab
 set shiftwidth=4
@@ -46,15 +46,35 @@ let g:NERDCommentEmptyLines = 1
 nnoremap <C-t> :NERDTreeMirror<CR>:NERDTreeFocus<CR>
 nnoremap ww :w <CR>
 nnoremap wq :wq <CR>
+nnoremap ws cs
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-autocmd FileType markdown let g:lsc_enable_autocomplete = v:false
 
-let g:lsc_auto_map = v:true
-let g:lsc_server_commands = {
-            \'perl': 'perl -MPerl::LanguageServer',
-            \'c' : 'clangd',
-            \'tex' : 'texlab'
-\}
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'pylsp',
+    \ 'cmd': {server_info->['pylsp']},
+    \ 'allowlist': ['python'],
+    \ })
+
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'pls',
+    \ 'cmd': {server_info->['pls']},
+    \ 'allowlist': ['perl'],
+    \ })
+
+autocmd User lsp_setup call lsp#register_server({
+    \'name': 'texlab',
+    \'cmd': {server_info->[expand('/path/to/texlab')]},
+    \'whitelist': ['tex']
+    \})
+
+let g:ale_linters = {
+    \   'python': ['pylsp'],
+    \   'perl': ['pls'],
+    \   'tex': ['texlab'],
+    \ }
+
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
