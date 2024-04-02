@@ -34,8 +34,13 @@ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 export PATH=~/scripts/distrobox:$PATH:~/go/bin:~/binaryninja:~/idafree-8.3:~/.local/bin
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-eval "$(direnv hook bash)"
 eval "$(starship init bash)"
+
+export PATH="/home/rhys/perl5/bin${PATH:+:${PATH}}"; export PATH;
+export PERL5LIB="/home/rhys/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+export PERL_LOCAL_LIB_ROOT="/home/rhys/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+export PERL_MB_OPT="--install_base \"/home/rhys/perl5\""; export PERL_MB_OPT;
+export PERL_MM_OPT="INSTALL_BASE=/home/rhys/perl5"; export PERL_MM_OPT;
 
 alias l='ls'
 alias ll='ls -lah'
