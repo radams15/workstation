@@ -39,6 +39,6 @@
   - name: vim-autocomplpop
     url: https://github.com/vim-scripts/AutoComplPop
 
-  - name: flattened # Solarized theme
-    url: https://github.com/romainl/flattened
+  - name: gruvbox
+    url: https://github.com/morhetz/gruvbox
 
