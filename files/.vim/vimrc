@@ -1,4 +1,4 @@
-packloadall
+execute pathogen#infect()
 
 set expandtab
 set shiftwidth=4
