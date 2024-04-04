@@ -5,18 +5,16 @@
     recurse: no
     mode: 0750
 
-- name: Unzip Fonts
+- name: Download Fonts (zip)
   unarchive:
     src: "{{ item.path }}"
     dest: "{{ home_dir }}/.fonts/"
-    copy: no
+    remote_src: yes
   loop:
-    - name: BigBlue
-      path: files/BigBlueTerminal.zip
-    - name: JetBrainsMono
-      path: files/JetBrainsMono.zip
+    - name: PlexMono
+      path: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/IBMPlexMono.zip
 
-- name: Download fonts
+- name: Download fonts (git)
   git:
     dest: "{{ home_dir }}/.fonts/{{ item.name }}"
     repo: "{{ item.url }}"
@@ -39,6 +37,6 @@
     - key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_profile.stdout }}/use-system-font"
       value: "false"
     - key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_profile.stdout }}/font"
-      value: "'JetBrainsMono Nerd Font Medium 14'"
+      value: "'BlexMono Nerd Font Mono 14'"
     - key: "/org/gnome/terminal/legacy/profiles:/:{{ terminal_profile.stdout }}/palette"
       value: "['rgb(7,54,66)', 'rgb(220,50,47)', 'rgb(133,153,0)', 'rgb(181,137,0)', 'rgb(38,139,210)', 'rgb(211,54,130)', 'rgb(42,161,152)', 'rgb(238,232,213)', 'rgb(0,43,54)', 'rgb(203,75,22)', 'rgb(88,110,117)', 'rgb(101,123,131)', 'rgb(131,148,150)', 'rgb(108,113,196)', 'rgb(147,161,161)', 'rgb(253,246,227)']"
