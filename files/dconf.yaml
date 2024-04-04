@@ -13,7 +13,14 @@ dconf:
   - key: "/org/gnome/desktop/wm/preferences/titlebar-font"
     value: "'BlexMono Nerd Font 11'"
   - key: "/org/gnome/desktop/wm/preferences/monospace-font-name"
-    value: "'BlexMono Nerd Font Mono 11'"
+    value: "'BlexMono Nerd Font Mono weight=453 12'"
+
+  - key: "/org/gnome/gedit/preferences/editor/scheme"
+    value: "'oblivion'"
+  - key: "/org/gnome/gedit/preferences/editor/use-default-font"
+    value: "false"
+  - key: "/org/gnome/gedit/preferences/editor/editor-font"
+    value: "'BlexMono Nerd Font Mono Light 12'"
 
   - key: "/org/gnome/terminal/legacy/theme-variant"
     value: "'system'"
