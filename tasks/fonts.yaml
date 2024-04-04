@@ -14,17 +14,6 @@
     - name: PlexMono
       path: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/IBMPlexMono.zip
 
-- name: Download fonts (git)
-  git:
-    dest: "{{ home_dir }}/.fonts/{{ item.name }}"
-    repo: "{{ item.url }}"
-    clone: yes
-    update: yes
-    recursive: no
-  loop:
-  - name: sfpro
-    url: https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts
-
 - name: Get gnome-terminal profile
   shell: sh files/terminal-profile.sh
   register: terminal_profile

@@ -7,11 +7,13 @@ dconf:
     value: "'12h'"
 
   - key: "/org/gnome/desktop/interface/document-font-name"
-    value: "'SF Pro Text 11'"
+    value: "'BlexMono Nerd Font 11'"
   - key: "/org/gnome/desktop/interface/font-name"
-    value: "'SF Pro Text 11'"
+    value: "'BlexMono Nerd Font 11'"
   - key: "/org/gnome/desktop/wm/preferences/titlebar-font"
-    value: "'SF Pro Text 11'"
+    value: "'BlexMono Nerd Font 11'"
+  - key: "/org/gnome/desktop/wm/preferences/monospace-font-name"
+    value: "'BlexMono Nerd Font Mono 11'"
 
   - key: "/org/gnome/terminal/legacy/theme-variant"
     value: "'system'"
