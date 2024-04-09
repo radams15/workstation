@@ -10,7 +10,7 @@ all: doc.pdf
 
 .PHONY: docker
 docker:
-	${DOCKER} run -v "$$(pwd)":/wdir -it --rm ${IMAGE} doc.pdf
+	${DOCKER} run -v "$$(pwd)":/wdir:z -it --rm ${IMAGE} doc.pdf
 
 words:
 	@for file in src/*.tex; do count=$$(perl latexcount.pl $$file | grep -oP '[0-9]+(?= total)'); printf "$$file:$$count\n"; words=$$(($$words+$$count)) ; done; printf "Total: $$words\n"
