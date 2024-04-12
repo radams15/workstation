@@ -5,6 +5,7 @@ toolbox_install_for_user: "{{ ansible_user_id }}"
 packages_general:
   - flatpak
   
+  - rhythmbox
   - gnome-tweaks
   - evolution
   - gimp
@@ -53,7 +54,6 @@ flatpaks:
   - org.torproject.torbrowser-launcher
   - org.videolan.VLC
   - org.remmina.Remmina
-  - org.gnome.Rhythmbox
   - com.github.xournalpp.xournalpp
   - com.github.flxzt.rnote
   - com.github.fabiocolacio.marker
