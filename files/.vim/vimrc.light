@@ -10,7 +10,6 @@ set number
 syntax off
 
 map q <Nop>
-set mouse=a
 
 let perldll=system('ldd /usr/bin/perl | grep -oE "\/.*(libperl.so[\.0-9]*)"')
 
