@@ -64,9 +64,7 @@
   loop: "{{ cpan }}"
 
 - name: Install pip packages
-  pip:
-    name: "{{ item }}"
-    extra_args: --user
+  command: "pip3 install --user {{ item }}"
   loop: "{{ pip }}"
 
 - name: Install golang packages
