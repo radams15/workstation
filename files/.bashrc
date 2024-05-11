@@ -34,7 +34,7 @@ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 export PATH=~/scripts/distrobox:$PATH:~/go/bin:~/binaryninja:~/idafree-8.3:~/.local/bin
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-eval "$(starship init bash)"
+# eval "$(starship init bash)" 
 
 export PATH="/home/rhys/perl5/bin${PATH:+:${PATH}}"; export PATH;
 export PERL5LIB="/home/rhys/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
