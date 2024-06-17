@@ -20,7 +20,6 @@ packages_general:
   - podman
   - virt-manager
   
-  - go
   - gcc
   - cmake
   - gdb
@@ -34,12 +33,14 @@ packages_debian:
   - cpanminus
   - clangd
   - g++
+  - golang
   
 packages_fedora:
   - nfs-utils
   - perl-App-cpanminus
   - clang-tools-extra
   - gcc-c++
+  - go
 
 packages_mac:
   - vim

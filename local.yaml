@@ -23,7 +23,7 @@
         - desktop
       
     - import_tasks: tasks/packages_debian.yaml
-      when: ansible_system == 'Linux' and (ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu')
+      when: ansible_system == 'Linux' and (ansible_distribution == 'Debian' or ansible_distribution == 'Devuan' or ansible_distribution == 'Ubuntu')
       tags:
         - desktop
 
