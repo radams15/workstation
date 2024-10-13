@@ -24,6 +24,7 @@ packages_general:
   - cmake
   - gdb
   - python3
+  - python3-pip
   - perl
   
   - python3-psutil
@@ -56,10 +57,8 @@ flatpaks:
   - org.videolan.VLC
   - org.remmina.Remmina
   - com.github.xournalpp.xournalpp
-  - com.github.flxzt.rnote
-  - com.github.fabiocolacio.marker
-  - org.gnome.FileRoller
   - com.github.afrantzis.Bless
+  - com.belmoussaoui.Authenticator
 
 binaries:
   - url: https://mirrors.ctan.org/support/latexcount/latexcount.pl
@@ -85,7 +84,6 @@ zips:
 
 cpan:
   - Devel::REPL
-  - Perl::LanguageServer
   - Mojolicious::Plugin::AssetPack
 
 pip:

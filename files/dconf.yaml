@@ -19,8 +19,6 @@ dconf:
     value: "'oblivion'"
   - key: "/org/gnome/gedit/preferences/editor/use-default-font"
     value: "false"
-  - key: "/org/gnome/gedit/preferences/editor/editor-font"
-    value: "'BlexMono Nerd Font Mono Light 12'"
 
   - key: "/org/gnome/terminal/legacy/theme-variant"
     value: "'system'"

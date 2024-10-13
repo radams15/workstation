@@ -64,7 +64,7 @@
   loop: "{{ cpan }}"
 
 - name: Install pip packages
-  command: "pip3 install --user {{ item }}"
+  command: "pip3 install --user {{ item }} --break-system-packages"
   loop: "{{ pip }}"
 
 - name: Install golang packages
