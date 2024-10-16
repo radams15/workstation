@@ -19,6 +19,7 @@ packages_general:
   - curl
   - podman
   - virt-manager
+  - autofs
   
   - gcc
   - cmake
@@ -60,22 +61,7 @@ flatpaks:
   - com.github.afrantzis.Bless
   - com.belmoussaoui.Authenticator
 
-binaries:
-  - url: https://mirrors.ctan.org/support/latexcount/latexcount.pl
-    dest: ~/.local/bin/latexcount
-
 zips:
-  - name: texlab.tar.gz
-    url: https://github.com/latex-lsp/texlab/releases/download/v5.11.0/texlab-x86_64-linux.tar.gz
-    files:
-      - texlab
-    dest: ~/.local/bin/
-  - name: binaryninja.zip
-    files:
-      - binaryninja/*
-    url: https://cdn.binary.ninja/installers/binaryninja_free_linux.zip
-    dest: ~/
-
   - name: starship
     url: https://github.com/starship/starship/releases/download/v1.17.0/starship-x86_64-unknown-linux-gnu.tar.gz
     files:

@@ -1,42 +1,11 @@
-- name: Check network share mountpoint
-  command: mountpoint -q {{mntshare_mountpoint}}
-  register: mntshare_stat
-  failed_when: False
-  changed_when: False
-  
-- name: ICMP ping mntshare host to check if up
-  delegate_to: localhost
-  command: ping -c 2 "{{ mntshare_host }}"
-  changed_when: false 
-  check_mode: false
-  ignore_errors: true
-  register: host_ping
-  failed_when: host_ping.rc != 0
-  
+- name: Check auto.master
+  copy: src=auto.master, dest=/etc/auto.master
 
-- name: check mountpoint exist
-  become: true
-  ansible.builtin.file:
-    path: "{{ mntshare_mountpoint }}"
-    state: directory
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-  when: mntshare_stat != 0 and host_ping.rc == 0 # When mntshare is not mounted and host up
+- name: Check auto.nfs
+  copy: src=auto.nfs, dest=/etc/auto.nfs
 
-- name: mount network share
-  become: true
-  ignore_errors: true
-  ansible.posix.mount:
-    src: "{{ mntshare_path }}"
-    path: "{{ mntshare_mountpoint }}"
-    fstype: nfs
-    opts: "{{ mntshare_shareopts }}"
-    state: mounted
-  register: mntshare_mounted
-  when: mntshare_stat != 0 and host_ping.rc == 0 # When mntshare is not mounted and host up
-  
-- name: Check network share mountpoint
-  command: mountpoint -q {{mntshare_mountpoint}}
-  register: mntshare_stat
-  failed_when: False
-  changed_when: False
+- name: Enable autofs
+  service:
+    name: autofs
+    state: started
+    enabled: yes
