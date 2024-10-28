@@ -2,6 +2,7 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set autoindent
+set colorcolumn=80
 
 set backspace=indent,eol,start
 
@@ -10,9 +11,7 @@ set number
 syntax off
 
 map q <Nop>
-
-let perldll=system('ldd /usr/bin/perl | grep -oE "\/.*(libperl.so[\.0-9]*)"')
-
+set mouse=a
 
 perl << EOF
 my $HOME = $ENV{HOME};

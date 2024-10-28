@@ -5,6 +5,7 @@ set shiftwidth=4
 set tabstop=4
 set autoindent
 set completeopt=longest,menuone
+set colorcolumn=80
 
 set backspace=indent,eol,start
 
@@ -18,9 +19,6 @@ syntax on
 
 map q <Nop>
 set mouse=a
-
-let perldll=system('ldd /usr/bin/perl | grep -oE "\/.*(libperl.so[\.0-9]*)"')
-
 
 perl << EOF
 my $HOME = $ENV{HOME};
@@ -49,7 +47,8 @@ nnoremap wq :wq <CR>
 nnoremap ws cs
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
+    \ exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 
 au User lsp_setup call lsp#register_server({
