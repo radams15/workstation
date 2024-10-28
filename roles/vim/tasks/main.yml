@@ -1,0 +1,46 @@
+---
+
+- name: Copy .vim directory
+  copy:
+    src: .vim
+    dest: "{{ home_dir }}"
+
+- name: Ensure .vim/{autoload,bundle} directory exists
+  file:
+    path: "{{ item }}"
+    state: directory
+    recurse: no
+    mode: 0750
+  loop:
+    - "{{ vim_dir }}/autoload"
+    - "{{ vim_dir }}/bundle"
+    
+- name: Ensure Pathogen is in place
+  get_url:
+    dest: "{{ vim_dir }}/autoload/pathogen.vim"
+    url: https://tpo.pe/pathogen.vim
+
+- name: Deploy plugins
+  git:
+    dest: "{{ vim_dir }}/bundle/{{ item.name }}"
+    repo: "{{ item.url }}"
+    clone: yes
+    update: yes
+    recursive: no
+  loop:
+  - name: nerdtree
+    url: https://github.com/preservim/nerdtree
+  - name: devicons
+    url: https://github.com/ryanoasis/vim-devicons
+  - name: vim-airline
+    url: https://github.com/vim-airline/vim-airline
+  - name: perl-support
+    url: https://github.com/vim-perl/vim-perl
+  - name: vim-lsc
+    url: https://github.com/natebosch/vim-lsc
+  - name: vim-autocomplpop
+    url: https://github.com/vim-scripts/AutoComplPop
+
+  - name: gruvbox
+    url: https://github.com/morhetz/gruvbox
+

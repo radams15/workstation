@@ -6,10 +6,6 @@
     - files/packages.yaml
     - files/mounts.yaml
     - files/dconf.yaml
-    - files/vim.yaml
-
-  roles:
-    - ansible-role-jet-brains-toolbox
 
   tasks:
     - name: Display all variables/facts known for a host
@@ -49,10 +45,6 @@
       when: ansible_system == 'Linux'
       tags:
         - desktop
-    - import_tasks: tasks/vim.yaml
-      tags:
-        - desktop
-        - headless
     - import_tasks: tasks/bash.yaml
       tags:
         - desktop
@@ -69,3 +61,12 @@
       when: ansible_system == 'Linux'
       tags:
         - desktop
+
+  roles:
+    - ansible-role-jet-brains-toolbox
+
+- name: Setup vim
+  hosts: localhost
+  tags: vim
+  roles:
+    - vim
