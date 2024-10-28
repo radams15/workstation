@@ -29,7 +29,7 @@ unset rc
 export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 export EDITOR=vim
 
-export LD_LIBRARY_PATH=/usr/local/lib
+export LD_LIBRARY_PATH=
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 export PATH=~/scripts/distrobox:$PATH:~/go/bin:~/binaryninja:~/idafree-8.3:~/.local/bin
 export BASH_SILENCE_DEPRECATION_WARNING=1
@@ -58,3 +58,17 @@ function len {
 function asteroidsdk {
     source /usr/local/oecore-x86_64/environment-setup-armv7vehf-neon-oe-linux-gnueabi
 }
+
+export LD_LIBRARY_PATH=/usr/local/lib
+
+_cdcs_completions()
+{
+    dirs=`ls /home/rhys/Documents/Cyber_Security/`
+    COMPREPLY=($(compgen -W "$dirs" -- "${COMP_WORDS[1]}"))
+}
+
+function cdcs {
+    cd /home/rhys/Documents/Cyber_Security/$1
+}
+
+complete -F _cdcs_completions cdcs
