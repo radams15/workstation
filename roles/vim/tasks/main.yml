@@ -1,5 +1,10 @@
 ---
 
+- name: Install git
+  package:
+    name: git
+    state: present
+
 - name: Copy .vim directory
   copy:
     src: .vim

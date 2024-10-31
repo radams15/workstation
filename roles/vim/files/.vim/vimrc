@@ -20,23 +20,20 @@ syntax on
 map q <Nop>
 set mouse=a
 
-perl << EOF
-my $HOME = $ENV{HOME};
-do "$HOME/.vim/VimExtensions.pm";
-EOF
+nnoremap cc :call nerdcommenter#Comment(0,"toggle")<C-m>
+xnoremap cc :call nerdcommenter#Comment(0,"toggle")<C-m>
 
-nnoremap cc :perl &comment_line <CR>
-xnoremap cc :perl &comment_block <CR>
-
-perl &set_theme;
+colorscheme gruvbox
 
 filetype plugin on
 filetype plugin indent on
-let g:NERDCreateDefaultMappings = 1
+
+let g:NERDCreateDefaultMappings = 0
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
+let g:NERDCommenterToggle="cc"
 
 " Nerd Tree Config
 

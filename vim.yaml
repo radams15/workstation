@@ -1,0 +1,6 @@
+---
+- name: Setup vim
+  hosts: all
+  tags: vim
+  roles:
+    - vim
