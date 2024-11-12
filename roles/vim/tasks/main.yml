@@ -1,8 +1,10 @@
 ---
 
-- name: Install git
+- name: Install requirements
   package:
-    name: git
+    name:
+      - vim
+      - git
     state: present
 
 - name: Copy .vim directory
