@@ -1,6 +1,7 @@
 ---
 
 - name: Install requirements
+  become: yes
   package:
     name:
       - vim

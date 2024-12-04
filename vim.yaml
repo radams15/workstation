@@ -1,6 +1,7 @@
 ---
 - name: Setup vim
   hosts: all
+  become_method: sudo
   tags: vim
   roles:
     - vim
