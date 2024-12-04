@@ -46,8 +46,6 @@
     url: https://github.com/vim-perl/vim-perl
   - name: vim-lsc
     url: https://github.com/natebosch/vim-lsc
-  - name: vim-autocomplpop
-    url: https://github.com/vim-scripts/AutoComplPop
 
   - name: gruvbox
     url: https://github.com/morhetz/gruvbox

@@ -9,9 +9,6 @@ set colorcolumn=80
 
 set backspace=indent,eol,start
 
-" Enter key selects autocomplete item
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 set number
 
 set termguicolors
@@ -72,6 +69,3 @@ let g:ale_linters = {
     \   'perl': ['pls'],
     \   'tex': ['texlab'],
     \ }
-
-set completeopt=longest,menuone
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
