@@ -6,6 +6,8 @@ OUT?=doc.pdf
 IMAGE?=tex
 DOCKER?=podman
 
+WORDCOUNT=2400
+
 all: doc.pdf
 
 .PHONY: docker
@@ -13,7 +15,7 @@ docker:
 	${DOCKER} run -v "$$(pwd)":/wdir:z -it --rm ${IMAGE} doc.pdf
 
 words:
-	@for file in src/*.tex; do count=$$(perl latexcount.pl $$file | grep -oP '[0-9]+(?= total)'); printf "$$file:$$count\n"; words=$$(($$words+$$count)) ; done; printf "Total: $$words\n"
+	@for file in src/*.tex; do count=$$(perl latexcount.pl $$file | grep -oP '[0-9]+(?= total)'); printf "$$file:$$count\n"; words=$$(($$words+$$count)) ; done; left=$$((${WORDCOUNT}-$$words));printf "Total: $$words/${WORDCOUNT}\n$$left left\n"
 
 spellcheck:
 	@for file in src/*.tex; do aspell --lang en_GB -t -c $$file; done
