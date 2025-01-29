@@ -6,7 +6,7 @@ OUT?=doc.pdf
 IMAGE?=tex
 DOCKER?=podman
 
-WORDCOUNT=2400
+WORDCOUNT=2500
 
 all: doc.pdf
 
