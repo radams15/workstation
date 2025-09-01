@@ -46,6 +46,8 @@
     url: https://github.com/vim-perl/vim-perl
   - name: vim-lsc
     url: https://github.com/natebosch/vim-lsc
+  - name: nerdcommenter
+    url: https://github.com/preservim/nerdcommenter
 
   - name: gruvbox
     url: https://github.com/morhetz/gruvbox

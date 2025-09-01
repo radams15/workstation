@@ -4,6 +4,8 @@ RUN dnf in -y texlive texlive-perltex make texlive-svg texlive-lastpage texlive-
 
 RUN echo 'xelatex -shell-escape $@' > /bin/shell_xelatex && chmod +x /bin/shell_xelatex
 
+RUN dnf in -y inkscape
+
 WORKDIR /wdir
 
 ENTRYPOINT ["make"]

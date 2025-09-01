@@ -73,4 +73,7 @@ function cdcs {
 
 complete -F _cdcs_completions cdcs
 
-alias macroute='sudo iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -j MASQUERADE ; sudo ip addr add 192.168.1.114 dev enp0s31f6'
+alias macroute='sudo iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -j MASQUERADE ; sudo ip addr add 192.168.1.114 dev enp0s31f6 ; sudo sysctl net.ipv4.ip_forward=1'
+
+export PATH=$PATH:/opt/flutter/bin/
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk

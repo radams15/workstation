@@ -49,10 +49,10 @@
       tags:
         - desktop
         - headless
-    - import_tasks: tasks/fonts.yaml
-      when: ansible_system == 'Linux'
-      tags:
-        - desktop
+    # - import_tasks: tasks/fonts.yaml
+    #   when: ansible_system == 'Linux'
+    #   tags:
+    #     - desktop
     - import_tasks: tasks/sudoers.yaml
       when: ansible_system == 'Linux'
       tags:
@@ -62,8 +62,8 @@
       tags:
         - desktop
 
-  roles:
-    - ansible-role-jet-brains-toolbox
+  # roles:
+  #   - ansible-role-jet-brains-toolbox
 
 - name: Setup vim
   hosts: localhost

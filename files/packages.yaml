@@ -5,7 +5,6 @@ toolbox_install_for_user: "{{ ansible_user_id }}"
 packages_general:
   - flatpak
   
-  - rhythmbox
   - gnome-tweaks
   - evolution
   - gimp
@@ -13,12 +12,10 @@ packages_general:
   - tar
   - wget
   - vim
-  - zsh
   
   - git
   - curl
   - podman
-  - virt-manager
   - autofs
   
   - gcc
