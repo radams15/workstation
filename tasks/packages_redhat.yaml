@@ -2,17 +2,34 @@
   become: true
   community.general.rhsm_repository:
     name: "codeready-builder-for-rhel-{{ ansible_distribution_major_version }}-x86_64-rpms"
-  when: ansible_os_family == 'RedHat'
+  when: ansible_distribution == 'RedHat'
 
 - name: Update Packages
   become: true
   yum: name=* state=latest
+
+- name: Add Microsoft Key
+  become: true
+  rpm_key:
+    state: present
+    key: "https://packages.microsoft.com/keys/microsoft.asc"
+
+- name: Enable  Microsoft Repos
+  become: true
+  ansible.builtin.yum_repository:
+    name: "microsoft"
+    description: "Microsoft repository"
+    file: microsoft
+    baseurl: "https://packages.microsoft.com/rhel/8/prod"
+    enabled: yes
+    gpgcheck: no
 
 - name: Add EPEL Key
   become: true
   rpm_key:
     state: present
     key: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+  when: ansible_distribution == 'RedHat'
 
 - name: Enable EPEL
   become: true
@@ -20,6 +37,7 @@
     name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
     state: latest
     validate_certs: false
+  when: ansible_distribution == 'RedHat'
   
   
 - name: Enable the RPMFusion free repository
