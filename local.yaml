@@ -7,6 +7,9 @@
     - files/mounts.yaml
     - files/dconf.yaml
 
+  vars:
+    home_dir: "/home/rhys"
+
   tasks:
     - name: Display all variables/facts known for a host
       debug:
@@ -41,10 +44,10 @@
       when: ansible_system == 'Linux'
       tags:
         - desktop
-    - import_tasks: tasks/dconf.yaml
-      when: ansible_system == 'Linux'
-      tags:
-        - desktop
+#    - import_tasks: tasks/dconf.yaml
+#      when: ansible_system == 'Linux'
+#      tags:
+#        - desktop
     - import_tasks: tasks/bash.yaml
       tags:
         - desktop

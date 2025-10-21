@@ -1,8 +1,10 @@
 - name: Check auto.master
-  copy: src=auto.master, dest=/etc/auto.master
+  become: yes
+  copy: src=auto.master dest=/etc/auto.master
 
 - name: Check auto.nfs
-  copy: src=auto.nfs, dest=/etc/auto.nfs
+  become: yes
+  copy: src=auto.nfs dest=/etc/auto.nfs
 
 - name: Enable autofs
   service:
